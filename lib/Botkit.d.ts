@@ -160,6 +160,14 @@ declare namespace botkit {
     key?: string;
     multiple?: boolean;
   }
+  type FacebookHandoverCallback = (error: Error|string, body: any) => void;
+  interface FacebookHandoverApi {
+    get_secondary_receivers_list(fields: string|string[], cb?: FacebookHandoverCallback): void
+    take_thread_control(recipient: string, metadata: string, cb?: FacebookHandoverCallback): void
+    pass_thread_control(recipient: string, target: string, metadata: string, cb?: FacebookHandoverCallback): void
+    request_thread_control(recipient: string, metadata: string, cb?: FacebookHandoverCallback): void
+    get_thread_owner(recipient: string, cb?: FacebookHandoverCallback): void
+  }
   interface FacebookAttachment {
     type: 'audio' | 'file' | 'image' | 'template' | 'video';
     payload: any;
@@ -186,6 +194,7 @@ declare namespace botkit {
       thread_settings: any;
       tags: any;
       nlp: any;
+      handover: FacebookHandoverApi;
 
     };
     createWebhookEndpoints(webserver: any, bot: FacebookBot, cb?: () => void): this;
