@@ -118,6 +118,9 @@ declare namespace botkit {
       send: {
         use(cb: (bot: B, message: M, next: () => void) => void): void;
       };
+      categorize: {
+        use(cb: (bot: B, message: M, next: () => void) => void): void;
+      };
     }
     readonly storage: {
       users: Storage<User>;
