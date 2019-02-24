@@ -135,6 +135,7 @@ declare namespace botkit {
     setupWebserver(port: number | string, cb: (err: Error, webserver: any) => void): this;
     spawn(config?: S, cb?: (worker: B) => void): B;
     startTicking(): void;
+    trigger(event: string, args: any[]): void;
   }
   interface Conversation<M extends Message> {
     readonly status: ConversationStatusType;
