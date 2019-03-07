@@ -136,6 +136,7 @@ declare namespace botkit {
     spawn(config?: S, cb?: (worker: B) => void): B;
     startTicking(): void;
     trigger(event: string, args: any[]): void;
+    receiveMessage(bot: B, message: M): void;
   }
   interface Conversation<M extends Message> {
     readonly status: ConversationStatusType;
