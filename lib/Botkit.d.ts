@@ -137,6 +137,7 @@ declare namespace botkit {
     startTicking(): void;
     trigger(event: string, args: any[]): void;
     receiveMessage(bot: B, message: M): void;
+    ingest(bot: B, opayload: any, source: any): void;
   }
   interface Conversation<M extends Message> {
     readonly status: ConversationStatusType;
